@@ -7,10 +7,10 @@ body {
 }
 
 .container {
-    max-width: 1000px;
     background-color: white;
     padding: 25px;
     border-radius: 30px;
+    max-width: 90%;
 }
 
 button{
@@ -34,4 +34,7 @@ button:hover {
     font-style: italic;
     font-size: 1.1em;
     color: #cc0066;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
