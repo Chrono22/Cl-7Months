@@ -15,10 +15,14 @@
         <button onclick="showMessage()">Click Here !</button>
         <p id="secret-message"></p>
     </div>
-    <div class="gallery-container">
-        <button class="prev" onclick="prevSlide()"></button>
-        <button class="next" onclick="nextSlide()"></button>
+    <div class="gallery-wrapper">
+        <div class="gallery-container">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <img class="gallery-image" src="Photos/Foto1.jpg" alt="Foto Kita Hehe">
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+        <div class="blinks"></div>
     </div>
+    <div class="hearts-container"></div>
 
     <script src="script.js"></script>
 </body>

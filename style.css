@@ -1,16 +1,17 @@
 body {
+    background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
     text-align: center;
-    background-color: #FFC1DA;
     color: #800040;
     font-family: 'SEGOE UI', sans-serif;
     padding: 50px;
+    cursor: url('cursors/heart.cur'), auto;
 }
 
 .container {
     background-color: white;
     padding: 25px;
     border-radius: 30px;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 button{
@@ -37,4 +38,93 @@ button:hover {
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+.gallery-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.gallery-image{
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 20px;
+    transition: opacity 0.5s ease-in-out;
+
+    box-shadow: 0 0 15px rgba(255, 192, 203, 0.6);
+    animation: blink-glow 1.5s infinite alternate;
+    filter: drop-shadow(0 0 10px pink);
+    box-shadow: 0 0 30px hotpink;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 105, 180, 0.4);
+    border: none;
+    font-size: 2em;
+    padding: 1px 15px 7px 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+    opacity: 85%;
+}
+
+button.prev {
+    left: -45px;
+    padding: 1px 15px 7px 15px;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(255, 20, 147, 1);
+  scale: 1.05;
+}
+
+@keyframes blink-glow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.4);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.9);
+  }
+}
+
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    top: -30px;
+    color: pink;
+    font-size: 20px;
+    animation: fall 5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
