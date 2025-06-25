@@ -1,0 +1,37 @@
+body {
+    text-align: center;
+    background-color: #FFC1DA;
+    color: #800040;
+    font-family: 'SEGOE UI', sans-serif;
+    padding: 50px;
+}
+
+.container {
+    max-width: 1000px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 30px;
+}
+
+button{
+    background-color: #f780af;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1a75;
+}
+
+#secret-message {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #cc0066;
+}
