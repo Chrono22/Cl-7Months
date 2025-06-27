@@ -42,32 +42,31 @@ function gotomain() {
 }
 
 // Fungsi Tombol 'Tidak'
-const noBtn = document.getElementById("no-button");
-noBtn.addEventListener("mouseover", () => {
-    const parent = document.querySelector(".button-group");
-    const maxX = parent.clientWidth - noBtn.offsetWidth;
-    const maxY = parent.clientHeight - noBtn.offsetHeight;
+const noButton = document.getElementById('no-button');
+const buttonGroup = document.querySelector('.button-group');
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+function moveNoButton() {
+    const groupRect = buttonGroup.getBoundingClientRect();
+    const buttonWidth = noButton.offsetWidth;
+    const buttonHeight = noButton.offsetHeight;
 
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-});
+    // Batas area supaya tidak keluar dari container
+    const maxLeft = groupRect.width - buttonWidth;
+    const maxTop = groupRect.height - buttonHeight;
 
-window.addEventListener("DOMContentLoaded", () => {
-    const noBtn = document.getElementById("no-button");
-    const parent = document.querySelector(".button-group");
+    const newLeft = Math.floor(Math.random() * maxLeft);
+    const newTop = Math.floor(Math.random() * maxTop);
 
-    const maxX = parent.clientWidth - noBtn.offsetWidth;
-    const maxY = parent.clientHeight - noBtn.offsetHeight;
+    noButton.style.left = `${newLeft}px`;
+    noButton.style.top = `${newTop}px`;
+}
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+// Jalankan di desktop
+noButton.addEventListener('mouseenter', moveNoButton);
+noButton.addEventListener('mousemove', moveNoButton);
 
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-});
+// Jalankan di HP
+noButton.addEventListener('touchstart', moveNoButton);
 
 
 let message_shown = false;
