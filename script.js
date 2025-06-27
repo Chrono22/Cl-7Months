@@ -55,6 +55,21 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.top = `${randomY}px`;
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+    const noBtn = document.getElementById("no-button");
+    const parent = document.querySelector(".button-group");
+
+    const maxX = parent.clientWidth - noBtn.offsetWidth;
+    const maxY = parent.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+});
+
+
 let message_shown = false;
 
 function showMessage(){

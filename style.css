@@ -2,7 +2,6 @@
     opacity: 1;
     transition: opacity 1s ease;
     text-align: center;
-    padding: 50px;
 }
 
 .page.hidden {
@@ -12,31 +11,68 @@
 }
 
 .button-group {
-    position: relative;
-    height: 400px;
     margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 120px;
 }
 
-.button-group button {
-    position: absolute;
+#yes-button,
+#no-button {
     padding: 10px 20px;
     font-size: 1.1em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
+    min-width: 120px;
 }
 
-.button-group button:first-child {
-    left: 80px;
+/* Warna tombol */
+#yes-button {
     background-color: #ff66a3;
     color: white;
 }
 
 #no-button {
-    left: 200px;
     background-color: #ddd;
+    color: #333;
 }
+
+/* Di layar besar: tombol "NGGAK" kabur */
+@media (min-width: 769px) {
+    #no-button {
+        position: absolute;
+    }
+
+    #no-button:hover {
+        transform: translateX(80px) translateY(-30px);
+    }
+}
+
+/* Di layar kecil: tombol tersusun rapi vertikal */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #no-button,
+    #yes-button {
+        position: static;
+        width: 80%;
+    }
+
+    #no-button:hover {
+        transform: none;
+    }
+}
+
 
 body {
     background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
@@ -304,4 +340,44 @@ button.next:hover {
 .closure {
     margin-top: 100px;
     font-size: 1.6em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .gallery-container {
+        margin-top: 20px;
+    }
+
+    .gallery-image {
+        max-width: 100%;
+    }
+
+    #video-gallery {
+        padding: 0 10px;
+    }
+
+    .video-box iframe {
+        height: 200px;
+    }
+
+    #timeline-box {
+        padding: 20px;
+        margin: 30px 10px;
+    }
+
+    #secret-message {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    .countdown-box div {
+        font-size: 1.2em;
+    }
 }
