@@ -1,10 +1,41 @@
-let messageShown = false;
+function fadeInMusic(audio, targetVolume = 0.5, duration = 6000) {
+    audio.volume = 0;
+    audio.play().catch(err => {
+        console.warn("Autoplay dicegah:", err);
+    });
+
+    const stepTime = 50; // lebih cepat siklusnya
+    const steps = duration / stepTime;
+    const volumeStep = targetVolume / steps;
+
+    const fade = setInterval(() => {
+        if (audio.volume + volumeStep >= targetVolume) {
+            audio.volume = targetVolume;
+            clearInterval(fade);
+        } else {
+            audio.volume += volumeStep;
+        }
+    }, stepTime);
+}
 
 // Fungsi Tombol 'Iya'
 function gotomain() {
-    document.getElementById("welcome-page").classList.add("hidden");
-    document.getElementById("main-page").classList.remove("hidden");
+    const welcome = document.getElementById("welcome-page");
+    const main = document.getElementById("main-page");
+
+    // Mulai fade out welcome
+    welcome.classList.add("hidden");
+
+    // Setelah 1 detik (sama seperti durasi CSS), baru fade in main
+    setTimeout(() => {
+        welcome.style.display = "none"; // opsional: sembunyikan penuh
+        main.classList.remove("hidden");
+
+        const audio = document.getElementById("bg-music");
+        fadeInMusic(audio, 0.5, 6000);
+    }, 1000);
 }
+
 
 // Fungsi Tombol 'Tidak'
 const noBtn = document.getElementById("no-button");
@@ -20,27 +51,29 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.top = `${randomY}px`;
 });
 
+let message_shown = false;
 
 function showMessage(){
-    if(messageShown) return;
-    messageShown = true;
+    if(message_shown) return;
 
-    const msg = "Kita bagaikan bla bla bla aku tidak tahu bagaiaman";
+    const msg = "Hai kamu! 💖 Terima kasih ya sudah bertahan sejauh ini sama aku. Aku tahu kadang aku nyebelin, kadang juga diam aja... tapi serius, aku bersyukur banget punya kamu. Semoga kita bisa terus sama-sama, makin saling ngerti, dan makin dewasa bareng. Aku cinta kamu. 🌸";
+
     const target = document.getElementById("secret-message");
     target.textContent = "";
+    target.classList.remove("show"); // reset animasi
 
     let index = 0;
+    message_shown = true;
 
     const typing = setInterval(() => {
         if(index < msg.length) {
             target.textContent += msg.charAt(index);
             index++;
-        } else{
+        } else {
             clearInterval(typing);
+            target.classList.add("show"); // tambahkan animasi setelah selesai ketik
         }
-    }, 70);
-
-    document.getElementById("btn-love").disabled = true;
+    }, 40);
 }
 
 const galleryImages = [
@@ -123,3 +156,62 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
+// GANTI tanggal sesuai hari spesialmu!
+const confessDate = new Date("2024-11-28T00:00:00"); // Tanggal confess
+const jadianDate = new Date("2024-01-28T00:00:00"); // Tanggal jadian
+
+function updateCountdownTo(targetDate, containerId, textId, finishMessage) {
+    const now = new Date();
+    const gap = targetDate - now;
+
+    const countdownEl = document.getElementById(containerId);
+    const textEl = document.getElementById(textId);
+
+    if (gap <= 0) {
+        countdownEl.textContent = "";
+        textEl.textContent = finishMessage;
+        return;
+    }
+
+    const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((gap / (1000 * 60)) % 60);
+    const seconds = Math.floor((gap / 1000) % 60);
+
+    countdownEl.textContent = `${days} hari : ${hours} jam : ${minutes} menit : ${seconds} detik`;
+}
+
+// Jalankan dua countdown sekaligus
+setInterval(() => {
+    updateCountdownTo(
+        new Date("2025-09-28T00:00:00"), // 1 tahun confess
+        "confess-countdown",
+        "confess-text",
+        "Hari ini genap 1 tahun sejak aku confess! 🥺💬"
+    );
+
+    updateCountdownTo(
+        new Date("2026-01-28T00:00:00"), // 1 tahun jadian
+        "jadian-countdown",
+        "jadian-text",
+        "Selamat 1 tahun hubungan kita! 🥳❤️"
+    );
+}, 1000);
+
+const bgMusic = document.getElementById("bg-music");
+const iframes = document.querySelectorAll("#video-gallery iframe");
+
+iframes.forEach((iframe) => {
+    iframe.addEventListener("mouseenter", () => {
+        if (!bgMusic.paused) {
+            bgMusic.pause();
+        }
+    });
+
+    iframe.addEventListener("mouseleave", () => {
+        if (bgMusic.paused) {
+            fadeInMusic(bgMusic, 0.5, 4000); // Gunakan fade-in juga biar halus
+        }
+    });
+});
