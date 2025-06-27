@@ -12,13 +12,15 @@
 }
 
 .button-group {
-    position: relative;
-    height: 400px;
+    display: flex;
+    justify-content: center;  /* Tengah-tengah */
+    gap: 40px;                /* Jarak antar tombol */
     margin-top: 30px;
+    flex-wrap: wrap;          /* Biar tetap responsif di HP */
 }
 
 .button-group button {
-    position: absolute;
+    position: relative; /* Ubah dari absolute ke relative agar default-nya tidak nempel kiri atas */
     padding: 10px 20px;
     font-size: 1.1em;
     border: none;
@@ -27,16 +29,10 @@
     transition: all 0.3s ease;
 }
 
-.button-group button:first-child {
-    left: 80px;
-    background-color: #ff66a3;
-    color: white;
-}
-
 #no-button {
-    left: 200px;
     background-color: #ddd;
 }
+
 
 body {
     background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
