@@ -23,19 +23,23 @@ function gotomain() {
     const welcome = document.getElementById("welcome-page");
     const main = document.getElementById("main-page");
 
-    // Mulai fade out welcome
-    welcome.classList.add("hidden");
-
-    // Setelah 1 detik (sama seperti durasi CSS), baru fade in main
+    // Mulai fade out
+    welcome.style.opacity = 0;
+    
+    // Sembunyikan setelah transisi
     setTimeout(() => {
-        welcome.style.display = "none"; // opsional: sembunyikan penuh
+        welcome.style.display = "none"; 
         main.classList.remove("hidden");
+        main.style.display = "block"; // tampilkan lagi
+        main.style.opacity = 1; // manual karena class hidden hilang
 
         const audio = document.getElementById("bg-music");
         fadeInMusic(audio, 0.5, 6000);
+
+        // Reset scroll
+        window.scrollTo(0, 0);
     }, 1000);
 }
-
 
 // Fungsi Tombol 'Tidak'
 const noBtn = document.getElementById("no-button");
@@ -56,7 +60,7 @@ let message_shown = false;
 function showMessage(){
     if(message_shown) return;
 
-    const msg = "Hai kamu! 💖 Terima kasih ya sudah bertahan sejauh ini sama aku. Aku tahu kadang aku nyebelin, kadang juga diam aja... tapi serius, aku bersyukur banget punya kamu. Semoga kita bisa terus sama-sama, makin saling ngerti, dan makin dewasa bareng. Aku cinta kamu. 🌸";
+    const msg = "Makasiii ya sayangggg buat 7 bulan yang udah boleh berjalan. Ku juga bersyukur banget sama Tuhan karna terus kasih kita kesempatan walaupun kita sering bandel. Makasii banyak juga yaa udah mau sabar banget ngehadepin ku yang kayak gini, kmu bnr2 byk nyadarin ku ttg banyak hal. Ku akan coba terus berusaha yang terbaik buatmu sayang. Ada banyak hal yang sudah kita lewatin, dari seneng hepi sampe ke yg sedih sedih lalu marah, apa pun itu terus kasih tau ke ku ya sayanggg. let me know apa pun yang terjadi dengan mu, ku gak akan pernah cape dengerin pacarku yang sangat ku sayangin iniiiii. apa pun juga yang terjadi jgn lupa komunikasiin ya sayang, jujur ku sangat kurang dalam kepekaan tapi ku akan terus belajar dan ku juga berharap kmu bisa bantuku buat lebih baik lagi. Ku juga berharap kita bisa terus saling memahami, lepas dari ego kita masing2. Seperti yang kmu bilang juga, terlepas dari siapa yang salah, mending kita peluk semua flaws itu dan evaluasi apa yang harus diperbaiki. So far menurutku kita udah keren banget, kita udah bangkit dari banyak masalah. Ku berharap kita bisa terus seperti itu karna balik lagi yang selalu ku omong, ku ngerasa kita dipersatuin sama Tuhan bukan karna kita sendiri. So, yuuu kita terus berusaha sayanggggg. See you di 1 tahun kita yaaaa. I love you sayanggggg❤️❤️❤️❤️❤️. btw maaf ya klo jelek hehehehehhe masi first time soalnya.";
 
     const target = document.getElementById("secret-message");
     target.textContent = "";
