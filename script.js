@@ -42,32 +42,24 @@ function gotomain() {
 }
 
 // Fungsi Tombol 'Tidak'
-const noButton = document.getElementById('no-button');
-const buttonGroup = document.querySelector('.button-group');
-
 function moveNoButton() {
-    const groupRect = buttonGroup.getBoundingClientRect();
-    const buttonWidth = noButton.offsetWidth;
-    const buttonHeight = noButton.offsetHeight;
+  const parent = noButton.parentElement;
+  const maxX = parent.clientWidth - noButton.offsetWidth;
+  const maxY = parent.clientHeight - noButton.offsetHeight;
 
-    // Batas area supaya tidak keluar dari container
-    const maxLeft = groupRect.width - buttonWidth;
-    const maxTop = groupRect.height - buttonHeight;
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
 
-    const newLeft = Math.floor(Math.random() * maxLeft);
-    const newTop = Math.floor(Math.random() * maxTop);
-
-    noButton.style.left = `${newLeft}px`;
-    noButton.style.top = `${newTop}px`;
+  noButton.style.position = "absolute";
+  noButton.style.left = `${randomX}px`;
+  noButton.style.top = `${randomY}px`;
 }
 
-// Jalankan di desktop
-noButton.addEventListener('mouseenter', moveNoButton);
-noButton.addEventListener('mousemove', moveNoButton);
+// Untuk desktop (hover)
+noButton.addEventListener("mouseover", moveNoButton);
 
-// Jalankan di HP
-noButton.addEventListener('touchstart', moveNoButton);
-
+// Untuk HP (touch/click)
+noButton.addEventListener("click", moveNoButton);
 
 let message_shown = false;
 

@@ -22,6 +22,10 @@
     min-height: 120px;
 }
 
+.button-group button {
+  position: relative !important;
+}
+
 #yes-button,
 #no-button {
     padding: 10px 20px;
