@@ -42,17 +42,23 @@ function gotomain() {
 }
 
 // Fungsi Tombol 'Tidak'
-const noBtn = document.getElementById("no-button");
-noBtn.addEventListener("mouseover", () => {
-    const parent = document.querySelector(".button-group");
-    const maxX = parent.clientWidth - noBtn.offsetWidth;
-    const maxY = parent.clientHeight - noBtn.offsetHeight;
+const noButton = document.getElementById("no-button");
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+noButton.addEventListener("mouseover", () => {
+    const buttonWidth = noButton.offsetWidth;
+    const buttonHeight = noButton.offsetHeight;
 
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
+    // Batas layar (biar tombol tidak keluar dari jangkauan)
+    const maxX = window.innerWidth - buttonWidth - 20; // kasih margin 20px
+    const maxY = window.innerHeight - buttonHeight - 20;
+
+    const randX = Math.floor(Math.random() * maxX);
+    const randY = Math.floor(Math.random() * maxY);
+
+    // Ubah ke posisi absolute hanya kalau mouse mendekat
+    noButton.style.position = "absolute";
+    noButton.style.left = `${randX}px`;
+    noButton.style.top = `${randY}px`;
 });
 
 let message_shown = false;
