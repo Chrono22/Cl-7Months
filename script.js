@@ -42,24 +42,18 @@ function gotomain() {
 }
 
 // Fungsi Tombol 'Tidak'
-function moveNoButton() {
-  const parent = noButton.parentElement;
-  const maxX = parent.clientWidth - noButton.offsetWidth;
-  const maxY = parent.clientHeight - noButton.offsetHeight;
+const noBtn = document.getElementById("no-button");
+noBtn.addEventListener("mouseover", () => {
+    const parent = document.querySelector(".button-group");
+    const maxX = parent.clientWidth - noBtn.offsetWidth;
+    const maxY = parent.clientHeight - noBtn.offsetHeight;
 
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
 
-  noButton.style.position = "absolute";
-  noButton.style.left = `${randomX}px`;
-  noButton.style.top = `${randomY}px`;
-}
-
-// Untuk desktop (hover)
-noButton.addEventListener("mouseover", moveNoButton);
-
-// Untuk HP (touch/click)
-noButton.addEventListener("click", moveNoButton);
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+});
 
 let message_shown = false;
 
