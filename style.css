@@ -1,3 +1,39 @@
+.hidden {
+    display: none;
+}
+
+.page {
+    text-align: center;
+    padding: 50px;
+}
+
+.button-group {
+    position: relative;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.button-group button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-group button:first-child {
+    left: 80px;
+    background-color: #ff66a3;
+    color: white;
+}
+
+#no-button {
+    left: 200px;
+    background-color: #ddd;
+}
+
 body {
     background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
     text-align: center;

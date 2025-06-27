@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,39 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>7 MONTHS???? YEYYYYYYYYYYYYYYYYYYY</h1>
-        <h2>💗💗 ⎛⎝ ≽  o  ⩊  o ≼ ⎠⎞ 💗💗</h2>
-        <p>MESSAGE</p>
-        <button onclick="showMessage()">Click Here !</button>
-        <p id="secret-message"></p>
+    <!-- Halaman Awal -->
+    <div id="welcome-page" class="page">
+        <h1>Hai, Cantikkkk 💕</h1>
+        <p>Are You Ready ?</p>
+        <p>Sebelum ituuu, jawab dulu pertanyaan ini</p>
+        <p>Kamu sayang ga sama kuuuu????</p>
+        <div class="button-group">
+            <button onclick="gotomain()">Pasti Dong 🥰</button>
+            <button id="no-button">NGGAK LAH!😳</button>
+        </div>
     </div>
-    <div class="gallery-wrapper">
-        <div class="gallery-container">
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <img class="gallery-image" src="Photos/Foto1.jpg" alt="Foto Kita Hehe">
-        <button class="next" onclick="nextSlide()">&#10095;</button>
-        <div class="blinks"></div>
+
+    <!-- Halaman Utama -->
+    <div id="main-page" class="page hidden">
+        <div class="container">
+            <h1>7 MONTHS???? YEYYYYYYYYYYYYYYYYYYY</h1>
+            <h2>💗💗 ⎛⎝ ≽  o  ⩊  o ≼ ⎠⎞ 💗💗</h2>
+            <p>MESSAGE</p>
+            <button id="btn-love" onclick="showMessage()">Click Here !</button>
+            <p id="secret-message"></p>
+        </div>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-container">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <img class="gallery-image" src="Photos/Foto1.jpg" alt="Foto Kita Hehe">
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+            <div class="blinks"></div>
+        </div>
+
+        <div class="hearts-container"></div>
     </div>
-    <div class="hearts-container"></div>
+    
 
     <script src="script.js"></script>
 </body>
