@@ -66,7 +66,7 @@ let message_shown = false;
 function showMessage(){
     if(message_shown) return;
 
-    const msg = "Makasiii ya sayangggg buat 7 bulan 1 hari yang udah boleh berjalan. Ku juga bersyukur banget sama Tuhan karna terus kasih kita kesempatan walaupun kita sering bandel. Makasii banyak juga yaa udah mau sabar banget ngehadepin ku yang kayak gini. Ku masi sering kekanak2an, gampang ngambek, gk bisa dibilangin, dipeduliin tp ku yg ga peduli, cemburuan, bnr2 kyk bocah. Kmu bnr2 byk nyadarin ku ttg banyak hal. Ku akan coba terus berusaha yang terbaik. Ada banyak hal yang sudah kita lewatin, dari seneng hepi sampe ke yg sedih sedih lalu marah, apa pun itu terus komunikasiin ke ku ya sayanggg. let me know apa pun yang terjadi dengan mu, ku gak akan pernah cape dengerin pacarku yang sangat ku sayangin iniiiii. Jujur ku sangat kurang dalam kepekaan tapi ku akan terus belajar dan ku juga berharap kmu bisa bantuku buat lebih baik lagi. Ku juga berharap kita bisa terus saling memahami, lepas dari ego kita masing2. Seperti yang kmu bilang juga, terlepas dari siapa yang salah, mending kita peluk semua flaws itu dan evaluasi apa yang harus diperbaiki. So far menurutku kita udah keren banget, kita udah bangkit dari banyak masalah. Ku berharap kita bisa terus seperti itu karna balik lagi yang selalu ku omong, ku ngerasa kita dipersatuin sama Tuhan bukan karna kita sendiri. So, yuuu kita terus berusaha sayanggggg. See you di 1 tahun kita yaaaa. I love you sayanggggg❤️❤️❤️❤️❤️. btw maaf ya klo jelek hehehehehhe masi first time soalnya.";
+    const msg = "Makasiii ya sayangggg buat 7 bulan 4 hari yang udah boleh berjalan. Ku juga bersyukur banget sama Tuhan karna terus kasih kita kesempatan walaupun kita sering bandel. Makasii banyak juga yaa udah mau sabar banget ngehadepin ku yang kayak gini. Ku masi sering kekanak2an, gampang ngambek, gk bisa dibilangin, dipeduliin tp ku yg ga peduli, cemburuan, bnr2 kyk bocah. Kmu bnr2 byk nyadarin ku ttg banyak hal. Ku akan coba terus berusaha yang terbaik. Ada banyak hal yang sudah kita lewatin, dari seneng hepi sampe ke yg sedih sedih lalu marah, apa pun itu terus komunikasiin ke ku ya sayanggg. let me know apa pun yang terjadi dengan mu, ku gak akan pernah cape dengerin pacarku yang sangat ku sayangin iniiiii. Jujur ku sangat kurang dalam kepekaan tapi ku akan terus belajar dan ku juga berharap kmu bisa bantuku buat lebih baik lagi. Ku juga berharap kita bisa terus saling memahami, lepas dari ego kita masing2. Seperti yang kmu bilang juga, terlepas dari siapa yang salah, mending kita peluk semua flaws itu dan evaluasi apa yang harus diperbaiki. So far menurutku kita udah keren banget, kita udah bangkit dari banyak masalah. Ku berharap kita bisa terus seperti itu karna balik lagi yang selalu ku omong, ku ngerasa kita dipersatuin sama Tuhan bukan karna kita sendiri. So, yuuu kita terus berusaha sayanggggg. See you di 1 tahun kita yaaaa. I love you sayanggggg❤️❤️❤️❤️❤️. btw maaf ya klo jelek hehehehehhe masi first time soalnya.";
 
     const target = document.getElementById("secret-message");
     target.textContent = "";
@@ -225,3 +225,23 @@ iframes.forEach((iframe) => {
         }
     });
 });
+
+function updateDayCounter() {
+    const start = new Date("2025-01-28");
+    const end = new Date("2032-01-28");
+    const today = new Date();
+
+    const totalDays = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+    const elapsedDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+
+    const counterText = document.getElementById("day-counter");
+    if (elapsedDays < 0) {
+        counterText.textContent = `Dimulai dalam ${Math.abs(elapsedDays)} hari lagi.`;
+    } else if (elapsedDays > totalDays) {
+        counterText.textContent = `🎉 Sudah melewati 2557 hari perjalanan cinta kita! 🎉`;
+    } else {
+        counterText.textContent = `${elapsedDays} / ${totalDays} days together until 28th January 2032`;
+    }
+}
+
+updateDayCounter(); // panggil saat pertama load
