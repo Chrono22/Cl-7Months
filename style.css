@@ -34,13 +34,15 @@
 }
 
 body {
-    background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
+    background-color: rgb(255, 195, 232);
+    margin: 0;
+    padding: 50px 20px;
     text-align: center;
-    color: #800040;
-    font-family: 'SEGOE UI', sans-serif;
-    padding: 50px;
-    cursor: url('cursors/heart.cur'), auto;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
 }
+
 
 .container {
     background-color: white;
@@ -75,6 +77,7 @@ button:hover {
     display: inline-block;
     text-align: center;
     margin-top: 40px;
+    width: 80%;
 }
 
 .gallery-image{
@@ -108,8 +111,8 @@ button.next {
 }
 
 button.prev {
-    left: -45px;
     padding: 1px 15px 7px 15px;
+    left: -47px;
 }
 
 button.prev:hover,
@@ -311,4 +314,70 @@ button.next:hover {
 .closure {
     margin-top: 100px;
     font-size: 1.6em;
+}
+
+@media screen and (max-width: 480px) {
+    #welcome-page {
+        justify-content: center;     /* Horizontal center */
+        align-items: center;
+    }
+    .page{
+        max-width: 100%;
+        padding: 1px;
+        justify-content: center;
+    }
+    .content-box {
+        max-width: 90vw;         /* Gunakan 90% lebar layar */
+        padding: 20px;           /* Lebih rapat di HP */
+        font-size: 14px;         /* Ukuran font kecil */
+        word-wrap: break-word;   /* Pecah kata kalau kepanjangan */
+        overflow-wrap: break-word;
+        box-sizing: border-box;  /* Pastikan padding dihitung di dalam box */
+    }
+
+    .content-box h1,
+    .content-box h2,
+    .content-box h3 {
+        font-size: 1.4em; /* Header tidak terlalu besar */
+    }
+
+    .content-box p {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+
+    .countdown-box div {
+        font-size: 1em;
+    }
+
+    .video-box iframe {
+        height: 180px;
+    }
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.content-box {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    height: auto;
+    position: static !important;
+  }
+
+  .button-group button {
+    position: relative !important;
+    left: auto !important;
+  }
 }
