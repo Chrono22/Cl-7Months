@@ -133,7 +133,7 @@ function showSlide(index) {
         img.onload = () => {
             img.style.opacity = 1;
         };
-    }, 200);
+    }, 100);
 }
 
 function prevSlide() {
