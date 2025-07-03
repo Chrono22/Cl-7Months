@@ -34,7 +34,7 @@
 }
 
 body {
-    background-color: rgb(255, 195, 232);
+    background: linear-gradient(120deg, #ffe0ec, #ffd1f9, #fff0f5);
     margin: 0;
     padding: 50px 20px;
     text-align: center;
